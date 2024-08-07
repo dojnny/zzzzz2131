@@ -1,9 +1,10 @@
 
+// Custom testbench
+
 `timescale 1ns / 1ps
 
 module top_level_tb;
-
-    // Test bench signals
+// Test bench signals
     reg clk;
     reg rst;
     wire pwm_out_0;
@@ -40,10 +41,13 @@ module top_level_tb;
     reg spi_tx_valid;
     wire spi_rx_valid;
 
-    // Simulation control
-    initial begin
+  initial begin
 
-        // Initialize signals
+    $dumpfile ("top_level_tb.vcd");
+    $dumpvars (0, top_level_tb);
+
+
+ // Initialize signals
         spi_tx_data = 16'h0000;
         spi_tx_valid = 0;
 
@@ -77,6 +81,7 @@ module top_level_tb;
 
         // Stop simulation
         $stop;
+        $finish;
     end
 
     // SPI Master simulation
