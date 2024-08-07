@@ -5,7 +5,7 @@ module Pwm_In
     #(parameter R = 8, TimerBits = 15)(
     input clk,
     input reset_n,
-    input [R-1:0] duty, // Control the Duty Cycle
+    input [R:0] duty, // Control the Duty Cycle
     input [TimerBits - 1:0] Final_Value, // Control the switching frequency
 
     input ready, // Signal indicating a pending write
